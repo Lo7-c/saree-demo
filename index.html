@@ -387,3 +387,43 @@ function openEdit(p){
   $('editDlg').showModal();
 }
 $('photo').addEventListener('change', e => {
+  const f = e.target.files[0]; if(!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const im = new Image();
+    im.onload = () => {
+      const max = 800, k = Math.min(1, max/Math.max(im.width, im.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(im.width*k); c.height = Math.round(im.height*k);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      tmpImg = c.toDataURL('image/jpeg', .78);
+      showPhoto(tmpImg);
+    };
+    im.onerror = () => { $('editErr').textContent = 'This file is not a valid image. Choose a JPG or PNG photo.'; };
+    im.src = reader.result;
+  };
+  reader.readAsDataURL(f);
+});
+$('editForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('fName').value.trim(), price = Number($('fPrice').value);
+  if(!name){ $('editErr').textContent='Enter the saree name.'; return; }
+  if(!(price>=0) || $('fPrice').value===''){ $('editErr').textContent='Enter a valid price.'; return; }
+  const data = { name, category:$('fCat').value, price, desc:$('fDesc').value.trim() };
+  if(editingId){
+    const p = products.find(x=>x.id===editingId);
+    Object.assign(p, data);
+    if(tmpImg) p.img = tmpImg;
+  } else {
+    const palette = [["#0F6A6B","#A3124A","#E0A526","diamond"],["#B0176B","#241833","#E0A526","dots"],["#27306B","#E0A526","#F4E9D8","ikat"]];
+    const np = { id:Date.now(), ...data, art: palette[Math.floor(Math.random()*palette.length)] };
+    if(tmpImg) np.img = tmpImg;
+    products.unshift(np);
+  }
+  if(save()){ $('editDlg').close(); render(); toast(editingId ? 'Changes saved' : 'Saree added'); }
+});
+
+render();
+</script>
+</body>
+</html>
