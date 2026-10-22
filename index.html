@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050507">
+<title>Sri Vasundhara Silks – Sarees</title>
+<script>document.documentElement.classList.toggle("lite",matchMedia("(hover:none),(max-width:760px)").matches)</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700&family=Great+Vibes&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+:root{
+  --bg:#050507; --panel:#0f0b17; --ink:#f4eef8; --muted:#a99dba;
+  --pink:#ff3d8b; --kumkum:#a3124a; --gold:#e8b030; --gold2:#f6d77a; --teal:#18b5b0;
+  --line:#2a2236;
+  --display:'Cinzel Decorative','Cinzel',serif;
+  --serif:'Cinzel','Times New Roman',serif;
+  --script:'Great Vibes','Brush Script MT',cursive;
+  --body:'Outfit','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.55;overflow-x:hidden;
+  background-image:radial-gradient(900px 500px at 10% -5%,#3a0a2399,transparent 60%),radial-gradient(800px 500px at 100% 20%,#0a3a3a66,transparent 60%)}
+img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.layer{position:relative;z-index:2}
+
+/* ---------- background motion ---------- */
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+#cursor{position:fixed;left:0;top:0;width:460px;height:460px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,#ff3d8b2e,#e8b03014 40%,transparent 70%);will-change:transform;opacity:0;transition:opacity .4s}
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);z-index:60;
+  background:linear-gradient(90deg,var(--pink),var(--gold),var(--teal))}
+
+/* ---------- admin bar ---------- */
+.admin-bar{position:sticky;top:0;z-index:40;background:#0b0810e6;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 20px}
+.admin-bar strong{margin-right:auto;font-weight:600;font-size:.92rem;color:var(--gold2)}
+.admin-bar[hidden]{display:none}
+
+/* ---------- animated border strip ---------- */
+.border-strip{height:26px;position:relative;z-index:2;
+  background:
+    linear-gradient(var(--gold),var(--gold)) 0 4px/100% 2px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) 0 calc(100% - 4px)/100% 2px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='26'%3E%3Cpath d='M10 5l7 8-7 8-7-8z' fill='%23e8b030'/%3E%3Cpath d='M10 9l3 4-3 4-3-4z' fill='%23a3124a'/%3E%3C/svg%3E") repeat-x 0 0/20px 26px,
+    #1a0610;
+  animation:slide 3s linear infinite;background-position:0 0,0 0,0 0,0 0}
+@keyframes slide{to{background-position:0 0,0 0,20px 0,0 0}}
+
+/* ---------- hero ---------- */
+.hero{max-width:1180px;margin:0 auto;padding:56px 22px 34px;display:grid;grid-template-columns:1.35fr .65fr;gap:36px;align-items:center;position:relative}
+.eyebrow{font-family:var(--script);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--gold2);margin:0 0 4px;line-height:1;
+  text-shadow:0 0 22px #e8b03088;animation:glowpulse 3.4s ease-in-out infinite}
+@keyframes glowpulse{50%{text-shadow:0 0 36px #ff3d8bcc,0 0 10px #e8b03088}}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(2.1rem,6.2vw,4.6rem);line-height:1.08;margin:0 0 16px;letter-spacing:.02em}
+.hero h1 .w{display:inline-block;white-space:nowrap}
+.hero h1 .l{display:inline-block;color:transparent;
+  background:linear-gradient(100deg,var(--gold2) 20%,#fff 38%,var(--gold) 55%,var(--pink) 78%,var(--gold2));
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;
+  animation:rise .9s cubic-bezier(.2,.8,.2,1) both,shine 6s linear infinite;
+  animation-delay:calc(var(--i)*45ms),calc(var(--i)*-130ms)}
+@keyframes rise{from{opacity:0;transform:translateY(60px) rotateX(80deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes shine{to{background-position:300% 0}}
+.hero p.tag{margin:0;max-width:48ch;color:var(--muted);font-size:1.08rem}
+
+.hero-art{position:relative;justify-self:center;width:min(100%,300px);animation:floaty 6s ease-in-out infinite}
+.hero-art .arch{border-radius:200px 200px 14px 14px;overflow:hidden;aspect-ratio:3/4;border:1px solid #e8b03066;
+  box-shadow:0 0 0 8px #ffffff06,0 0 60px #ff3d8b55,0 0 120px #e8b03033;animation:archglow 4s ease-in-out infinite}
+.hero-art img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);animation:slowzoom 12s ease-in-out infinite alternate}
+.spark{position:absolute;color:var(--gold2);font-size:1.5rem;text-shadow:0 0 14px var(--gold);animation:twinkle 2.6s ease-in-out infinite}
+.spark.a{top:6%;left:-14px}.spark.b{top:38%;right:-18px;animation-delay:.9s;color:#ff8fc0}.spark.c{bottom:10%;left:-8px;animation-delay:1.6s;font-size:1rem}
+@keyframes floaty{50%{transform:translateY(-16px) rotate(1.2deg)}}
+@keyframes archglow{50%{box-shadow:0 0 0 8px #ffffff0a,0 0 80px #ff3d8b88,0 0 140px #e8b03055}}
+@keyframes slowzoom{to{transform:scale(1.2) translateY(-3%)}}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(90deg)}}
+
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:#0a0710cc;padding:12px 0;position:relative;z-index:2;margin-bottom:34px}
+.track{display:flex;width:max-content;gap:0;animation:marq 26s linear infinite}
+.track span{font-family:var(--serif);font-weight:500;letter-spacing:.14em;white-space:nowrap;padding:0 22px;color:var(--gold2);font-size:.95rem}
+.track span i{font-style:normal;color:var(--pink);margin-left:44px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- tools ---------- */
+.tools{max-width:1180px;margin:0 auto;padding:0 22px 22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px;flex:1 1 380px}
+.chip{border:1px solid var(--line);background:#120d1a;padding:7px 18px;border-radius:999px;cursor:pointer;color:var(--muted);transition:.25s}
+.chip:hover{border-color:var(--gold);color:var(--ink)}
+.chip[aria-pressed="true"]{background:linear-gradient(120deg,var(--kumkum),var(--pink));border-color:transparent;color:#fff;box-shadow:0 0 22px #ff3d8b66}
+.search{flex:0 1 250px;width:100%;border:1px solid var(--line);background:#120d1a;padding:9px 16px;border-radius:999px;transition:.25s}
+.search:focus{border-color:var(--gold);box-shadow:0 0 18px #e8b03044;outline:none}
+.search::placeholder{color:#7d7190}
+
+main{max-width:1180px;margin:0 auto;padding:0 22px 70px}
+.count{color:var(--muted);margin:0 0 16px;font-size:.95rem}
+
+/* ---------- cards: bubble reveal + 3D tilt + corner glow ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:30px}
+.bw{opacity:0;transform:scale(.25) translateY(90px);filter:blur(10px);
+  transition:transform .45s cubic-bezier(.55,0,.8,.3),opacity .35s ease,filter .35s ease}
+.bw.in{opacity:1;transform:none;filter:none;
+  transition:transform 1s cubic-bezier(.34,1.56,.64,1) var(--d,0ms),opacity .6s ease var(--d,0ms),filter .6s ease var(--d,0ms)}
+
+.card{--rx:0;--ry:0;--mx:50%;--my:50%;--s:1;
+  position:relative;height:100%;display:flex;flex-direction:column;background:var(--panel);border-radius:50%;
+  transform:perspective(900px) rotateX(calc(var(--rx)*1deg)) rotateY(calc(var(--ry)*1deg)) scale(var(--s));
+  box-shadow:-12px -12px 40px -14px #ff3d8b77,12px 12px 40px -14px #e8b03066,0 24px 40px -24px #000;
+  transition:transform .18s ease-out,border-radius .5s ease,box-shadow .4s ease;will-change:transform}
+.bw.in .card{border-radius:20px;transition:transform .18s ease-out,border-radius .9s ease var(--d,0ms),box-shadow .4s ease}
+.card.hot{--s:1.035;box-shadow:-16px -16px 56px -10px #ff3d8bbb,16px 16px 56px -10px #e8b030aa,0 30px 50px -20px #000}
+/* spinning light on the border */
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;z-index:4;pointer-events:none;
+  background:conic-gradient(from var(--ang),transparent 0 55%,var(--pink) 72%,var(--gold2) 86%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask-composite:exclude;
+  animation:spin 6s linear infinite}
+@keyframes spin{to{--ang:360deg}}
+/* glare that follows the pointer */
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:3;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(260px circle at var(--mx) var(--my),#ffffff30,transparent 60%)}
+.card.hot::after{opacity:1}
+
+.thumb{position:relative;border:0;padding:0;background:#1a1424;cursor:pointer;aspect-ratio:3/4;display:block;width:100%;overflow:hidden;border-radius:inherit;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.thumb img{width:100%;height:100%;object-fit:cover;transform:scale(1.1) translate(calc(var(--ry)*-.5px),calc(var(--rx)*.5px));transition:transform .5s ease}
+.card.hot .thumb img{transform:scale(1.17) translate(calc(var(--ry)*-1.4px),calc(var(--rx)*1.4px))}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,#ffffff40 50%,transparent 60%);transform:translateX(-120%)}
+.card.hot .thumb::after{animation:sweep .9s ease}
+@keyframes sweep{to{transform:translateX(120%)}}
+.card.sold .thumb img{filter:grayscale(1) brightness(.6)}
+.badge{position:absolute;top:14px;left:14px;z-index:2;background:#000c;border:1px solid var(--pink);color:#ff9cc3;font-size:.8rem;padding:3px 14px;border-radius:999px;letter-spacing:.06em}
+
+.info{padding:16px 18px 18px;display:grid;gap:3px;flex:1;align-content:start}
+.info h3{font-family:var(--serif);font-weight:700;font-size:1.05rem;margin:0;line-height:1.3;letter-spacing:.02em}
+.meta{margin:0;color:var(--muted);font-size:.9rem}
+.price{font-family:var(--serif);font-weight:700;font-size:1.3rem;margin-top:6px;color:var(--gold2);text-shadow:0 0 18px #e8b03055}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid #ffffff33;background:#ffffff0a;color:var(--ink);padding:9px 18px;border-radius:999px;cursor:pointer;text-decoration:none;font-weight:600;font-size:.92rem;transition:transform .2s,box-shadow .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px);border-color:var(--gold)}
+.btn.primary{border:0;color:#fff;background:linear-gradient(120deg,var(--kumkum),var(--pink) 55%,var(--gold));background-size:200% 100%;animation:btnflow 5s ease infinite;box-shadow:0 8px 24px -8px #ff3d8b99}
+.btn.primary:hover{box-shadow:0 10px 30px -6px #ff3d8bcc}
+@keyframes btnflow{50%{background-position:100% 0}}
+.btn.danger{border-color:#ff3d8b88;color:#ff8fba}
+.btn.light{border-color:#ffffff33}
+.btn.small{padding:6px 14px;font-size:.84rem}
+.btn[aria-disabled="true"]{opacity:.4;pointer-events:none;animation:none}
+
+.empty{grid-column:1/-1;border:1px dashed var(--line);padding:56px 20px;text-align:center;color:var(--muted);border-radius:18px}
+
+footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:26px 20px;text-align:center;color:var(--muted);font-size:.92rem;background:#050507cc}
+footer button{background:none;border:0;color:var(--gold2);text-decoration:underline;cursor:pointer;padding:0}
+
+/* ---------- dialogs ---------- */
+dialog{border:1px solid #e8b03055;border-radius:20px;padding:0;max-width:min(94vw,760px);width:100%;background:#0d0914;color:var(--ink);
+  box-shadow:0 0 80px #ff3d8b44,0 0 30px #e8b03033}
+dialog[open]{animation:popin .55s cubic-bezier(.34,1.56,.64,1)}
+dialog::backdrop{background:#000000d0;backdrop-filter:blur(6px)}
+@keyframes popin{from{opacity:0;transform:scale(.4);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+.dlg{padding:24px}
+.dlg h2{font-family:var(--serif);font-weight:700;margin:0 0 16px;font-size:1.5rem}
+.view{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.view img{border-radius:14px;width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 0 40px #ff3d8b44}
+.view .desc{color:var(--muted)}
+.close{float:right;background:none;border:0;font-size:1.8rem;line-height:1;cursor:pointer;color:var(--muted)}
+.close:hover{color:var(--gold2)}
+label{display:grid;gap:5px;font-weight:600;font-size:.9rem;margin-bottom:13px;color:var(--gold2)}
+input[type=text],input[type=number],input[type=password],select,textarea{border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:#150f1e;font-weight:300;color:var(--ink)}
+input[type=file]{color:var(--muted)}
+select option{background:#150f1e}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.photo-box{aspect-ratio:3/4;border:1px dashed #6b5b80;border-radius:14px;overflow:hidden;display:grid;place-items:center;color:var(--muted);text-align:center;padding:10px}
+.photo-box img{width:100%;height:100%;object-fit:cover}
+.err{color:#ff8fba;min-height:1.4em;margin:0 0 8px;font-size:.92rem}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#150f1e;border:1px solid var(--gold);color:var(--ink);padding:11px 20px;border-radius:999px;z-index:80;box-shadow:0 0 30px #e8b03055;animation:popin .4s cubic-bezier(.34,1.56,.64,1)}
+.toast[hidden]{display:none}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;text-align:left;padding-top:36px}
+  .hero-art{width:210px;order:-1;justify-self:start}
+  .grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .info{padding:12px 12px 14px}
+  .info h3{font-size:.9rem}
+  .price{font-size:1.05rem}
+  .btn.small{padding:6px 10px;font-size:.78rem}
+  .view,.form-grid{grid-template-columns:1fr}
+  .view img{max-height:340px}
+  .photo-box{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .bw{opacity:1;transform:none;filter:none}
+  .card{border-radius:20px}
+  .hero h1 .l{opacity:1}
+}
+
+/* ---------- lite mode: phones and touch screens (no blur, no repainting animations) ---------- */
+.lite .admin-bar{backdrop-filter:none;background:#0b0810}
+.lite dialog::backdrop{backdrop-filter:none;background:#000000e6}
+.lite .border-strip,.lite .eyebrow,.lite .btn.primary{animation:none}
+.lite .hero h1 .l{animation:rise .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*45ms);
+  background:linear-gradient(100deg,var(--gold2),#fff 45%,var(--gold) 70%,var(--pink));-webkit-background-clip:text;background-clip:text}
+.lite .hero-art .arch{animation:none;box-shadow:0 0 36px #ff3d8b55}
+.lite .hero-art img{animation:none;transform:none}
+.lite .bw{filter:none;transform:scale(.55) translateY(50px);transition:transform .3s ease,opacity .25s ease}
+.lite .bw.in{filter:none;transition:transform .7s cubic-bezier(.34,1.4,.64,1) var(--d,0ms),opacity .45s ease var(--d,0ms)}
+.lite .card,.lite .bw.in .card{border-radius:20px;transition:none;transform:none;will-change:auto;border:1px solid #e8b03040;
+  box-shadow:-6px -6px 20px -10px #ff3d8b99,6px 6px 20px -10px #e8b030880}
+.lite .card::before,.lite .card::after{display:none}
+.lite .thumb img{transform:none;transition:none}
+.lite .thumb{border-radius:19px 19px 0 0}
+.lite .track{animation-duration:36s}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="cursor" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<div class="admin-bar" id="adminBar" hidden>
+  <strong id="adminLabel">Owner mode</strong>
+  <button class="btn light small" id="addBtn">Add saree</button>
+  <button class="btn light small" id="previewBtn">View as customer</button>
+  <button class="btn light small" id="resetBtn">Reset demo</button>
+  <button class="btn light small" id="logoutBtn">Log out</button>
+</div>
+
+<div class="border-strip" aria-hidden="true"></div>
+
+<div class="layer">
+<header class="hero">
+  <div>
+    <p class="eyebrow">Handpicked sarees</p>
+    <h1 id="shopName">Sri Vasundhara Silks</h1>
+    <p class="tag" id="shopTag">Pochampally ikat, Dharmavaram pattu and Gadwal sarees, chosen for weddings, festivals and every day in between.</p>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="arch"><img id="heroArt" alt=""></div>
+    <span class="spark a">✦</span><span class="spark b">✦</span><span class="spark c">✦</span>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track"></div>
+</div>
+
+<div class="tools">
+  <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+  <input class="search" id="search" type="search" placeholder="Search sarees" aria-label="Search sarees">
+</div>
+
+<main>
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+</main>
+</div>
+
+<footer>
+  <span id="footName">Sri Vasundhara Silks</span> &nbsp;|&nbsp; Prices and stock change daily. Message us on WhatsApp to confirm.
+  &nbsp;|&nbsp; <button id="loginLink">Owner login</button>
+</footer>
+
+<dialog id="viewDlg">
+  <div class="dlg">
+    <button class="close" data-close aria-label="Close">&times;</button>
+    <div class="view" id="viewBody"></div>
+  </div>
+</dialog>
+
+<dialog id="loginDlg" style="max-width:380px">
+  <form class="dlg" id="loginForm">
+    <h2>Owner login</h2>
+    <label>Password
+      <input type="password" id="pw" autocomplete="current-password" required>
+    </label>
+    <p class="err" id="loginErr" role="alert"></p>
+    <div class="actions">
+      <button class="btn primary" type="submit">Log in</button>
+      <button class="btn" type="button" data-close>Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="editDlg">
+  <form class="dlg" id="editForm">
+    <h2 id="editTitle">Add saree</h2>
+    <div class="form-grid">
+      <div>
+        <div class="photo-box" id="photoBox">No photo yet</div>
+        <label style="margin-top:12px">Photo
+          <input type="file" id="photo" accept="image/*">
+        </label>
+      </div>
+      <div>
+        <label>Name
+          <input type="text" id="fName" required maxlength="70" placeholder="e.g. Pochampally Ikat, Indigo">
+        </label>
+        <label>Category
+          <select id="fCat"></select>
+        </label>
+        <label>Price in rupees
+          <input type="number" id="fPrice" min="0" step="1" required>
+        </label>
+        <label>Description
+          <textarea id="fDesc" rows="3" maxlength="300" placeholder="Fabric, colour, blouse piece, wash care"></textarea>
+        </label>
+      </div>
+    </div>
+    <p class="err" id="editErr" role="alert"></p>
+    <div class="actions">
+      <button class="btn primary" type="submit">Save saree</button>
+      <button class="btn" type="button" data-close>Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ===== Settings: change these for each client ===== */
+const CONFIG = {
+  shopName: "Sri Vasundhara Silks",
+  whatsapp: "919999999999",   // country code + number, no + or spaces
+  password: "admin123",       // demo password only. Real login comes with the backend.
+  categories: ["Silk","Cotton","Ikat","Bridal","Daily wear"]
+};
+
+/* ===== Sample data (artwork is drawn until the owner uploads real photos) ===== */
+const SEEDS = [
+  {id:1,name:"Dharmavaram Pattu, Peacock Green",category:"Silk",price:12500,desc:"Pure pattu with a wide zari border and rich pallu. Blouse piece included.",art:["#0F6A6B","#A3124A","#E0A526","diamond"]},
+  {id:2,name:"Pochampally Ikat, Indigo",category:"Ikat",price:3800,desc:"Handwoven double ikat cotton. Soft, breathable, and good for long days.",art:["#27306B","#E0A526","#F4E9D8","ikat"]},
+  {id:3,name:"Gadwal Cotton-Silk, Magenta",category:"Silk",price:7200,desc:"Light cotton body with a silk border. Easy to drape, easy to carry.",art:["#B0176B","#241833","#E0A526","dots"]},
+  {id:4,name:"Kanchi Bridal Silk, Maroon",category:"Bridal",price:28900,desc:"Heavy kanchipuram silk with real zari butta work. Made for the wedding day.",art:["#6E0F2A","#E0A526","#F6D77A","floral"]},
+  {id:5,name:"Venkatagiri Cotton, Marigold",category:"Cotton",price:2400,desc:"Fine-count cotton with a thin zari border. Cool in summer.",art:["#E8A317","#0F6A6B","#FFF4D6","dots"]},
+  {id:6,name:"Mangalagiri Cotton, Rani Pink",category:"Daily wear",price:1650,desc:"Crisp cotton that holds its shape wash after wash.",art:["#D81B72","#241833","#FFFFFF","none"]},
+  {id:7,name:"Uppada Silk, Sea Blue",category:"Silk",price:9800,desc:"Feather-light Uppada weave with a jamdani-style border.",art:["#1C7FA8","#A3124A","#F6D77A","floral"]},
+  {id:8,name:"Ikat Cotton, Rust and Teal",category:"Ikat",price:3200,desc:"Bold geometric ikat, soft hand feel, comes with a matching blouse piece.",art:["#B4532A","#0F6A6B","#F4E9D8","ikat"]}
+];
+
+/* ===== Generated saree artwork (SVG) ===== */
+function art(a){
+  const [c1,c2,c3,m] = a;
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800"><rect width="600" height="800" fill="${c1}"/>`;
+  for(let x=0;x<600;x+=40) s += `<rect x="${x}" width="18" height="800" fill="#fff" opacity=".06"/>`;
+  for(let y=50, r=0; y<510; y+=62, r++){
+    if(m==='ikat'){
+      let d=`M0 ${y}`; for(let x=0;x<=600;x+=30) d+=` L${x} ${y+((x/30)%2?-14:14)}`;
+      s += `<path d="${d}" fill="none" stroke="${c3}" stroke-width="5" opacity=".8"/>`;
+      continue;
+    }
+    for(let x=(r%2?25:55); x<600; x+=60){
+      if(m==='diamond') s += `<path d="M${x} ${y-12}l10 12-10 12-10-12z" fill="${c3}" opacity=".85"/>`;
+      else if(m==='dots') s += `<circle cx="${x}" cy="${y}" r="5" fill="${c3}" opacity=".9"/>`;
+      else if(m==='floral') s += `<g fill="${c3}" opacity=".85"><circle cx="${x-7}" cy="${y}" r="5"/><circle cx="${x+7}" cy="${y}" r="5"/><circle cx="${x}" cy="${y-7}" r="5"/><circle cx="${x}" cy="${y+7}" r="5"/><circle cx="${x}" cy="${y}" r="3" fill="${c1}"/></g>`;
+    }
+  }
+  s += `<rect y="540" width="600" height="70" fill="${c2}"/>`;
+  s += `<rect y="548" width="600" height="3" fill="${c3}"/><rect y="599" width="600" height="3" fill="${c3}"/>`;
+  for(let x=15;x<600;x+=30) s += `<path d="M${x} 560l10 15-10 15-10-15z" fill="${c3}"/>`;
+  s += `<rect width="600" height="16" fill="${c2}"/><rect y="16" width="600" height="3" fill="${c3}"/></svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+}
+
+/* ===== State ===== */
+const KEY = 'saree_demo_v1';
+let products = load();
+let admin = false;
+try { admin = sessionStorage.getItem('saree_admin') === '1'; } catch(e) {}
+let preview = false, cat = 'All', q = '', editingId = null, tmpImg = null;
+
+function load(){
+  try {
+    const raw = localStorage.getItem(KEY);
+    if(raw){ const arr = JSON.parse(raw); if(Array.isArray(arr)) return arr; }
+  } catch(e) {}
+  return JSON.parse(JSON.stringify(SEEDS));
+}
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify(products)); return true; }
+  catch(e){ toast('Storage is full. Delete a few photos and try again.'); return false; }
+}
+
+/* ===== Helpers ===== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '₹' + Number(n).toLocaleString('en-IN');
+const imgOf = p => p.img || art(p.art || ['#6E0F2A','#E0A526','#F6D77A','dots']);
+const waLink = p => `https://wa.me/${CONFIG.whatsapp}?text=` + encodeURIComponent(`Hello, I’m interested in “${p.name}” (${money(p.price)}). Is it available?`);
+let toastTimer;
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.hidden=true,2600); }
+const isOwner = () => admin && !preview;
+
+/* ===== Scroll bubble: cards pop in when they enter, shrink back into bubbles when they leave ===== */
+const io = new IntersectionObserver(es => es.forEach(en => en.target.classList.toggle('in', en.isIntersecting)),
+  {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+function observeCards(){ io.disconnect(); document.querySelectorAll('.bw').forEach(el => io.observe(el)); }
+
+/* ===== Render ===== */
+function render(){
+  $('footName').textContent = CONFIG.shopName;
+
+  $('adminBar').hidden = !admin;
+  $('adminLabel').textContent = preview ? 'Previewing as a customer' : 'Owner mode: only you can see these controls';
+  $('previewBtn').textContent = preview ? 'Back to editing' : 'View as customer';
+  $('addBtn').hidden = preview;
+  $('resetBtn').hidden = preview;
+
+  const cats = ['All', ...new Set([...CONFIG.categories, ...products.map(p=>p.category)])]
+    .filter(c => c==='All' || products.some(p=>p.category===c) || isOwner());
+  if(!cats.includes(cat)) cat = 'All';
+  $('chips').innerHTML = cats.map(c => `<button class="chip" data-cat="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('');
+
+  const list = products.filter(p => (cat==='All' || p.category===cat) && (!q || (p.name+' '+p.category+' '+(p.desc||'')).toLowerCase().includes(q)));
+  $('count').textContent = list.length ? `${list.length} ${list.length===1?'saree':'sarees'}` : '';
+
+  if(!list.length){
+    $('grid').innerHTML = `<div class="empty">${products.length ? 'No sarees match this search. Try another category or clear the search.' : (isOwner() ? 'Your catalog is empty. Use “Add saree” above to upload your first photo.' : 'New sarees are coming soon.')}</div>`;
+    return;
+  }
+  $('grid').innerHTML = list.map((p,i) => `
+    <div class="bw" style="--d:${(i%4)*90}ms">
+    <article class="card ${p.sold?'sold':''}" data-id="${p.id}">
+      <button class="thumb" data-act="view" aria-label="View ${esc(p.name)}">
+        <img src="${imgOf(p)}" alt="${esc(p.name)}" loading="lazy" decoding="async">
+        ${p.sold?'<span class="badge">Sold out</span>':''}
+      </button>
+      <div class="info">
+        <h3>${esc(p.name)}</h3>
+        <p class="meta">${esc(p.category)}</p>
+        <div class="price">${money(p.price)}</div>
+        <div class="actions">
+          ${isOwner()
+            ? `<button class="btn small" data-act="edit">Edit</button>
+               <button class="btn small" data-act="sold">${p.sold?'Mark available':'Mark sold out'}</button>
+               <button class="btn small danger" data-act="del">Delete</button>`
+            : `<a class="btn primary small" href="${waLink(p)}" target="_blank" rel="noopener" ${p.sold?'aria-disabled="true" tabindex="-1"':''}>${p.sold?'Sold out':'Order on WhatsApp'}</a>`}
+        </div>
+      </div>
+    </article>
+    </div>`).join('');
+  observeCards();
+}
+
+/* ===== 3D tilt (mouse only; touch screens keep the bubble animation) ===== */
+const grid = $('grid');
+grid.addEventListener('pointermove', e => {
+  if(e.pointerType !== 'mouse') return;
+  const c = e.target.closest('.card'); if(!c) return;
+  const r = c.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+  c.style.setProperty('--ry', ((x-.5)*18).toFixed(2));
+  c.style.setProperty('--rx', ((.5-y)*18).toFixed(2));
+  c.style.setProperty('--mx', (x*100).toFixed(1)+'%');
+  c.style.setProperty('--my', (y*100).toFixed(1)+'%');
+  c.classList.add('hot');
+});
+grid.addEventListener('pointerout', e => {
+  const c = e.target.closest('.card');
+  if(c && !c.contains(e.relatedTarget)){
+    c.classList.remove('hot');
+    c.style.setProperty('--rx',0); c.style.setProperty('--ry',0);
+  }
+});
+
+/* ===== Events ===== */
+$('chips').addEventListener('click', e => { const b=e.target.closest('[data-cat]'); if(b){ cat=b.dataset.cat; render(); } });
+$('search').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); render(); });
+
+grid.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if(!b) return;
+  const id = Number(b.closest('.card').dataset.id);
+  const p = products.find(x => x.id===id); if(!p) return;
+  const act = b.dataset.act;
+  if(act==='view') openView(p);
+  if(act==='edit') openEdit(p);
+  if(act==='sold'){ p.sold = !p.sold; if(save()){ render(); toast(p.sold?'Marked as sold out':'Marked as available'); } }
+  if(act==='del'){ if(confirm(`Delete “${p.name}”? This cannot be undone.`)){ products = products.filter(x=>x.id!==id); save(); render(); toast('Saree deleted'); } }
+});
+
+document.addEventListener('click', e => { if(e.target.closest('[data-close]')) e.target.closest('dialog').close(); });
+document.querySelectorAll('dialog').forEach(d => d.addEventListener('click', e => { if(e.target===d) d.close(); }));
+
+function openView(p){
+  $('viewBody').innerHTML = `
+    <img src="${imgOf(p)}" alt="${esc(p.name)}">
+    <div>
+      <h2 style="font-family:var(--serif);font-weight:700;margin:0 0 6px">${esc(p.name)}</h2>
+      <p class="meta">${esc(p.category)}</p>
+      <div class="price" style="font-size:1.7rem;margin:8px 0 12px">${money(p.price)}</div>
+      <p class="desc">${esc(p.desc || 'Ask us for more photos and fabric details.')}</p>
+      <div class="actions">
+        <a class="btn primary" href="${waLink(p)}" target="_blank" rel="noopener" ${p.sold?'aria-disabled="true"':''}>${p.sold?'Sold out':'Order on WhatsApp'}</a>
+      </div>
+    </div>`;
+  $('viewDlg').showModal();
+}
+
+/* Login */
+$('loginLink').addEventListener('click', () => {
+  if(admin){ preview=false; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+  $('pw').value=''; $('loginErr').textContent=''; $('loginDlg').showModal(); $('pw').focus();
+});
+$('loginForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if($('pw').value === CONFIG.password){
+    admin = true; preview = false;
+    try { sessionStorage.setItem('saree_admin','1'); } catch(err) {}
+    $('loginDlg').close(); render(); toast('Logged in as owner');
+  } else { $('loginErr').textContent = 'Wrong password. Try again.'; }
+});
+$('logoutBtn').addEventListener('click', () => {
+  admin=false; preview=false;
+  try { sessionStorage.removeItem('saree_admin'); } catch(e) {}
+  render(); toast('Logged out');
+});
+$('previewBtn').addEventListener('click', () => { preview=!preview; render(); });
+$('resetBtn').addEventListener('click', () => {
+  if(confirm('Remove all your changes and restore the sample sarees?')){
+    products = JSON.parse(JSON.stringify(SEEDS)); save(); render(); toast('Demo reset');
+  }
+});
+
+/* Add / edit */
+$('fCat').innerHTML = CONFIG.categories.map(c=>`<option>${esc(c)}</option>`).join('');
+$('addBtn').addEventListener('click', () => openEdit(null));
+
+function showPhoto(src){ $('photoBox').innerHTML = src ? `<img src="${src}" alt="Photo preview">` : 'No photo yet'; }
+function openEdit(p){
+  editingId = p ? p.id : null;
+  tmpImg = p ? (p.img || null) : null;
+  $('editTitle').textContent = p ? 'Edit saree' : 'Add saree';
+  $('fName').value = p ? p.name : '';
+  $('fCat').value = p ? p.category : CONFIG.categories[0];
+  $('fPrice').value = p ? p.price : '';
+  $('fDesc').value = p ? (p.desc||'') : '';
+  $('photo').value = ''; $('editErr').textContent = '';
+  showPhoto(p ? imgOf(p) : null);
+  $('editDlg').showModal();
+}
+$('photo').addEventListener('change', e => {
+  const f = e.target.files[0]; if(!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const im = new Image();
+    im.onload = () => {
+      const max = 800, k = Math.min(1, max/Math.max(im.width, im.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(im.width*k); c.height = Math.round(im.height*k);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      tmpImg = c.toDataURL('image/jpeg', .78);
+      showPhoto(tmpImg);
+    };
+    im.onerror = () => { $('editErr').textContent = 'This file is not a valid image. Choose a JPG or PNG photo.'; };
+    im.src = reader.result;
+  };
+  reader.readAsDataURL(f);
+});
+$('editForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('fName').value.trim(), price = Number($('fPrice').value);
+  if(!name){ $('editErr').textContent='Enter the saree name.'; return; }
+  if(!(price>=0) || $('fPrice').value===''){ $('editErr').textContent='Enter a valid price.'; return; }
+  const data = { name, category:$('fCat').value, price, desc:$('fDesc').value.trim() };
+  const wasEdit = !!editingId;
+  if(editingId){
+    const p = products.find(x=>x.id===editingId);
+    Object.assign(p, data);
+    if(tmpImg) p.img = tmpImg;
+  } else {
+    const palette = [["#0F6A6B","#A3124A","#E0A526","diamond"],["#B0176B","#241833","#E0A526","dots"],["#27306B","#E0A526","#F4E9D8","ikat"]];
+    const np = { id:Date.now(), ...data, art: palette[Math.floor(Math.random()*palette.length)] };
+    if(tmpImg) np.img = tmpImg;
+    products.unshift(np);
+  }
+  if(save()){ $('editDlg').close(); render(); toast(wasEdit ? 'Changes saved' : 'Saree added'); }
+});
+
+/* ===== Motion graphics ===== */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const lite = document.documentElement.classList.contains('lite');
+
+/* hero title: letters rise in one by one, then shimmer */
+(function(){
+  const h = $('shopName'); let i = 0;
+  h.setAttribute('aria-label', CONFIG.shopName);
+  h.innerHTML = CONFIG.shopName.split(' ').map(w =>
+    `<span class="w" aria-hidden="true">${[...w].map(ch => `<span class="l" style="--i:${i++}">${esc(ch)}</span>`).join('')}</span>`).join(' ');
+  $('heroArt').src = art(SEEDS[3].art);
+  const words = ['Pochampally Ikat','Dharmavaram Pattu','Gadwal','Kanchi Bridal','Venkatagiri Cotton','Uppada Silk','Mangalagiri'];
+  const one = words.map(w => `<span>${w}<i>✦</i></span>`).join('');
+  $('track').innerHTML = one + one;
+})();
+
+/* gold dust floating up behind everything */
+(function(){
+  if(reduce) return;
+  const cv = $('fx'), ctx = cv.getContext('2d'); let W, H;
+  const size = () => { W = cv.width = innerWidth; H = cv.height = innerHeight; };
+  size(); addEventListener('resize', () => { if(innerWidth !== W) size(); });
+  const ps = Array.from({length: lite ? 12 : 55}, () => ({
+    x: Math.random()*W, y: Math.random()*H, r: Math.random()*1.8+.5, v: Math.random()*.45+.12,
+    p: Math.random()*6.28, c: Math.random()<.3 ? '#ff5fa2' : '#e8b030'
+  }));
+  let frame = 0;
+  (function tick(){
+    frame++;
+    if(!document.hidden && (!lite || frame % 2 === 0)){
+      ctx.clearRect(0,0,W,H);
+      for(const p of ps){
+        p.y -= p.v; p.p += .03; p.x += Math.sin(p.p)*.35;
+        if(p.y < -6){ p.y = H+6; p.x = Math.random()*W; }
+        ctx.globalAlpha = .25 + .6*Math.abs(Math.sin(p.p));
+        ctx.fillStyle = p.c; if(!lite){ ctx.shadowColor = p.c; ctx.shadowBlur = 10; }
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+      }
+    }
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* soft light that follows the mouse (desktop only) */
+(function(){
+  if(reduce || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const el = $('cursor'); let tx = 0, ty = 0, x = 0, y = 0;
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; el.style.opacity = 1; });
+  (function loop(){
+    x += (tx-x)*.12; y += (ty-y)*.12;
+    el.style.transform = `translate(${x-230}px,${y-230}px)`;
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* scroll progress line */
+addEventListener('scroll', () => {
+  const m = document.documentElement.scrollHeight - innerHeight;
+  $('progress').style.transform = `scaleX(${m>0 ? scrollY/m : 0})`;
+}, {passive:true});
+
+render();
+</script>
+</body>
+</html>
